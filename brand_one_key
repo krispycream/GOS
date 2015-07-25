@@ -19,7 +19,10 @@ OnLoop(function(myHero)
 	if ValidTarget(target, 900) then
 	--Loots from TheWelder
 	local allDMG = GetBonusAP(myHero)
-	local Rdmg = (GetCastLevel(myHero,_R)*150)+(allDMG*2)
+	local Rdmg = (GetCastLevel(myHero,_R) *150)+(allDMG)
+	local Rdmg = (GetCastLevel(myHero,_R) *250)+(allDMG)
+	local Rdmg = (GetCastLevel(myHero,_R) *350)+(allDMG)
+		
 	
 
 		local WPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),math.huge,850,900,240,false,false)	

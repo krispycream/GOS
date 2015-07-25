@@ -5,7 +5,6 @@ require("IWalk")
 AddInfo("Chogath", "Chogath")
 AddButton("Q", "Use Q", true)
 AddButton("W", "Use W", true)
-AddButton("E", "Use E", true)
 AddButton("R", "Use R Killable", true)
 
 

@@ -35,9 +35,6 @@ end
 		end		
 	end
 end		
-	RDamage = (RBaseDmg[GetCastLevel(myHero,_R)+1]+(GetBonusAP(myHero)/100)*60)
-	if CanUseSpell(myHero, _R) == READY and GetButtonValue("R") and IsInDistance(target, 700) then
-			CastTargetSpell(target, _R)
 	    	end
 	end
 end)

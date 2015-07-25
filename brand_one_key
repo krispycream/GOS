@@ -35,22 +35,6 @@ end
 		end		
 	end
 end		
-
-function Laneclear() --thanks for Jouza for this code
-	local m = GetHighestMinion(GetMyHeroPos(), 675, MINION_JUNGLE)
-	local l = GetHighestMinion(GetMyHeroPos(), 675, MINION_ENEMY)
-	if m ~= NIL
-		if IsInDistance(m, 900) and CanUseSpell(myHero, _W) == READY and GetButtonValue("Jungleclear_W") then
-        	CastTargetSpell(myHero, _W)
-     	elseif IsInDistance(m, 700) and CanUseSpell(myHero, _E) == READY and GetButtonValue("Jungleclear_E") then
-     		CastTargetSpell(m, _E)
-	elseif l ~= NIL
-  		elseif IsInDistance(l, 900) and CanUseSpell(myHero, _W) == READY and GetButtonValue("Laneclear_W") then
-        	CastTargetSpell(myHero, _W)
-     	elseif IsInDistance(l, 700) and CanUseSpell(myHero, _E) == READY and GetButtonValue("Laneclear_E") then
-     		CastTargetSpell(l, _E)
-
-end
 	    	end
 	end
 end)

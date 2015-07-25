@@ -16,7 +16,7 @@ OnLoop(function(myHero)
 	if GetKeyValue("Combo") then
 	local target = GetCurrentTarget()
 	if ValidTarget(target, 900) then
-	local Sweeping = ClosestMinion(myHeroPos,MINION_ENEMY)
+	local Sweeping = ClosestMinion(targetPos,MINION_ENEMY)
 	local minionPos = GetOrigin(Sweeping)
 
 	--credits to inspire
@@ -34,8 +34,8 @@ end
 	--credits to TheWelder
 	
 			if GetButtonValue("E") then
-			if IsInDistance(target,1000) and IsObjectAlive(target) then
-			if GetDistance(Sweeping,target) < GetDistance(myHero,target) and GetDistance(myHero,target) > 200 then 
+			if IsInDistance(target,400) and IsObjectAlive(target) then
+			if GetDistance(Sweeping,target) < GetDistance(myHero,target) and GetDistance(myHero,target) > 250 then 
 			if Sweeping and GetOrigin(Sweeping) then
 			if CanUseSpell(myHero,_E) == READY then
 			CastTargetSpell(Sweeping,_E)	
@@ -43,7 +43,7 @@ end
 	end
 		end
 
-			if GetDistance(myHero,target) < 200 then
+			if GetDistance(myHero,target) < 250 then
 			if CanUseSpell(myHero, _E) == READY and GetButtonValue("E") and IsInDistance(target,200) then
 			CastTargetSpell(target, _E)
 			

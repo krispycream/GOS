@@ -2,7 +2,7 @@ require("Inspired")
 require("IWalk")
 
 
-AddInfo("Brand", "Brand")
+AddInfo("Chogath", "Chogath")
 AddButton("Q", "Use Q", true)
 AddButton("W", "Use W", true)
 AddButton("E", "Use E", true)

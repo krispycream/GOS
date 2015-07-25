@@ -17,7 +17,7 @@ OnLoop(function(myHero)
 	local target = GetCurrentTarget()
 	if ValidTarget(target, 900) then
 	--Loots from TheWelder
-	local BonusAP = GetBonusAP(myHero)/100)*70)
+	local BonusAP = ((GetBonusAP(myHero)/100)*70)
 	local Feast = (GetCastLevel(myHero,_R)*300)+(BonusAP)
 	local Feast2 = (GetCastLevel(myHero,_R)*475)+(BonusAP)
 	local Feast3 = (GetCastLevel(myHero,_R)*650)+(BonusAP)

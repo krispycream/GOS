@@ -20,8 +20,8 @@ OnLoop(function(myHero)
 	--Loots from TheWelder
 	local BonusAP = GetBonusAP(myHero)
 	local Pyroclasm = (GetCastLevel(myHero,_R) *150)+(BonusAP)
-	local Pyroclasm = (GetCastLevel(myHero,_R) *250)+(BonusAP)
-	local Pyroclasm = (GetCastLevel(myHero,_R) *350)+(BonusAP)
+	local Pyroclasm2 = (GetCastLevel(myHero,_R) *250)+(BonusAP)
+	local Pyroclasm3 = (GetCastLevel(myHero,_R) *350)+(BonusAP)
 		
 	
 
@@ -48,6 +48,8 @@ end
 	if GetButtonValue("R") then
 	if ValidTarget(target,700) then
 	if CalcDamage(myHero, target, Pyroclasm) > GetCurrentHP(target) + GetHPRegen(target) then
+	if CalcDamage(myHero, target, Pyroclasm2) > GetCurrentHP(target) + GetHPRegen(target) then
+	if CalcDamage(myHero, target, Pyroclasm3) > GetCurrentHP(target) + GetHPRegen(target) then
 	if CanUseSpell(myHero,_R) == READY then
 	CastTargetSpell(target,_R)
 end

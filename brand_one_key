@@ -19,6 +19,7 @@ OnLoop(function(myHero)
 	if ValidTarget(target, 900) then
 	--Loots from TheWelder
 	local BonusAP = GetBonusAP(myHero)
+	local perc50 = (BonusAP*50)/100
 	local Pyroclasm = (GetCastLevel(myHero,_R) *150)+(BonusAP)
 	local Pyroclasm2 = (GetCastLevel(myHero,_R) *250)+(BonusAP)
 	local Pyroclasm3 = (GetCastLevel(myHero,_R) *350)+(BonusAP)

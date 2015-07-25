@@ -6,15 +6,21 @@ AddInfo("Brand", "Brand")
 AddButton("Q", "Use Q", true)
 AddButton("W", "Use W", true)
 AddButton("E", "Use E", true)
+AddButton("R", "Use R Killable", true)
 
 
 OnLoop(function(myHero)
 	IWalk()
 	DrawMenu()
 	DrawText("ONE KEY TO WIN",24,0,0,0xffff0000);
+				
 	if GetKeyValue("Combo") then
 	local target = GetCurrentTarget()
-	    if ValidTarget(target, 900) then
+	if ValidTarget(target, 900) then
+	--Loots from TheWelder
+	local allDMG = GetBonusAP(myHero)
+	local Rdmg = (GetCastLevel(myHero,_R)*150)+(allDMG*2)
+	
 
 		local WPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),math.huge,850,900,240,false,false)	
 			if GetButtonValue("W") then
@@ -35,6 +41,17 @@ end
 		end		
 	end
 end		
+
+	if GetButtonValue("R") then
+	if ValidTarget(target,700) then
+	if CalcDamage(myHero, target, Rdmg) > GetCurrentHP(target) + GetHPRegen(target) then
+	if CanUseSpell(myHero,_R) == READY then
+	CastTargetSpell(target,_R)
+end
+end
+end
+end
+
 	    	end
 	end
 end)

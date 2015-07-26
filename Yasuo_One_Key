@@ -44,11 +44,13 @@ end
 		end
 
 			if CanUseSpell(myHero, _E) == READY and GetButtonValue("E") and IsInDistance(target, 450) then
+			if Sweeping and GetOrigin(Sweeping) then
 			CastTargetSpell(target, _E)
 
                 end
 	
 	end
+end
 end
 
 

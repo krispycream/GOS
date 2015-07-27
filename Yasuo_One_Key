@@ -16,7 +16,7 @@ OnLoop(function(myHero)
 	if GetKeyValue("Combo") then
 	local target = GetCurrentTarget()
 	if ValidTarget(target, 1200) then
-	local Sweeping = ClosestMinion(targetPos,MINION_ENEMY)
+	local Sweeping = ClosestMinion(targetPos,MINION_ENEMYClosestMinion)
 	local minionPos = GetOrigin(Sweeping)
 
 	--credits to inspire

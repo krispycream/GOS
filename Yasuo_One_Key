@@ -2,14 +2,14 @@ require("Inspired")
 require("IWalk")
 
 
-AddInfo("Yasuo", "Yasuo")
-AddButton("Q", "Use Q", true)
-AddButton("E", "Use E", true)
-AddButton("R", "Use R", true)
-
+Config = scriptConfig("Brand", "Yasuo_One_Key")
+Config.addParam("Q", "Use Q", SCRIPT_PARAM_ONOFF, true)
+Config.addParam("W", "Use W", SCRIPT_PARAM_ONOFF, true)
+Config.addParam("E", "Use E", SCRIPT_PARAM_ONOFF, true)
+Config.addParam("R", "Use R", SCRIPT_PARAM_ONOFF, true)
 
 OnLoop(function(myHero)
-	IWalk()
+	if not IWalkConfig.Combo then return end
 	DrawMenu()
 	DrawText("ONE KEY TO WIN",24,0,0,0xffff0000);
 				
@@ -33,13 +33,11 @@ end
  
 	--credits to TheWelder
 	
-			if GetButtonValue("E") then
 			if IsInDistance(target,1200) and IsObjectAlive(target) then
 			if GetDistance(Sweeping,target) < GetDistance(myHero,target) and GetDistance(myHero,target) > 450 then 
 			if Sweeping and GetOrigin(Sweeping) then
 			if CanUseSpell(myHero,_E) == READY then
 			CastTargetSpell(Sweeping,_E)	
-end
 	end
 		end
 
@@ -56,5 +54,4 @@ end
 
 
 	    	end
-	end
 end)

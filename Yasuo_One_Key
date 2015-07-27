@@ -2,7 +2,7 @@ require("Inspired")
 require("IWalk")
 
 
-Config = scriptConfig("Brand", "Yasuo_One_Key")
+Config = scriptConfig("Yasuo", "Yasuo_One_Key")
 Config.addParam("Q", "Use Q", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("W", "Use W", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("E", "Use E", SCRIPT_PARAM_ONOFF, true)
@@ -12,8 +12,6 @@ OnLoop(function(myHero)
 	if not IWalkConfig.Combo then return end
 	DrawMenu()
 	DrawText("ONE KEY TO WIN",24,0,0,0xffff0000);
-				
-	if GetKeyValue("Combo") then
 	local target = GetCurrentTarget()
 	if ValidTarget(target, 1200) then
 	local Sweeping = ClosestMinion(targetPos,MINION_ENEMYClosestMinion)

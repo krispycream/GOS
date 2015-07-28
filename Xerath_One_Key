@@ -11,7 +11,7 @@ OnLoop(function(myHero)
 	local target = GetCurrentTarget()
 	local WPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),math.huge,700,1000,200,false,true)
 	local EPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1400,200,1150,60,true,true)
-	local QPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),math.huge,600,1550,100,false,false)
+	local QPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),math.huge,600,1550,100,false,true)
 	DrawText("ONE KEY TO WIN",24,0,0,0xffff0000);
 	
 		     

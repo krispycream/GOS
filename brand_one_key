@@ -15,6 +15,8 @@ OnLoop(function(myHero)
 	local target = GetCurrentTarget()
 	if ValidTarget(target, 900) then
 	--Loots from TheWelder
+	local WPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),math.huge,850,900,240,false,false)
+	local QPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1600,250,1100,60,true,true)
 	local BonusAP = GetBonusAP(myHero)
 	local perc50 = (BonusAP*50)/100
 	local Pyroclasm = (GetCastLevel(myHero,_R) *150)+(BonusAP)
@@ -22,22 +24,17 @@ OnLoop(function(myHero)
 	local Pyroclasm3 = (GetCastLevel(myHero,_R) *350)+(BonusAP)
 		
 	
-
-		local WPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),math.huge,850,900,240,false,false)
-	        	if CanUseSpell(myHero, _W) == READY and Config.W and WPred.HitChance == 1 then
+	        if CanUseSpell(myHero, _W) == READY and Config.W and WPred.HitChance == 1 then
                  	CastSkillShot(_W,WPred.PredPos.x,WPred.PredPos.y,WPred.PredPos.z)
-	end
-		if CanUseSpell(myHero, _E) == READY and Config.E and GetButtonValue("E") and IsInDistance(target, 700) then
+
+		elseif CanUseSpell(myHero, _E) == READY and Config.E and GetButtonValue("E") and IsInDistance(target, 700) then
 			CastTargetSpell(target, _E)
 			
 
-                	end
-		if ValidTarget(target, 1100) then
-		local QPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1600,250,1100,60,true,true)
+		elseif ValidTarget(target, 1100) then
                  	if CanUseSpell(myHero, _Q) == READY and Config.Q and QPred.HitChance == 1 then
                  	CastSkillShot(_Q,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
 		end		
-	end	
 
 	if ValidTarget(target,700) then
 	if CalcDamage(myHero, target, Pyroclasm) > GetCurrentHP(target) + GetHPRegen(target) then

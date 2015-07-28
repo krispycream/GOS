@@ -10,30 +10,28 @@ OnLoop(function(myHero)
         if IWalkConfig.Combo then
 	local target = GetCurrentTarget()
 	DrawText("ONE KEY TO WIN",24,0,0,0xffff0000);
-	if ValidTarget(target, 1550) then
+	if ValidTarget(target, 1000) then
 
-	 local QPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),math.huge,600,1550,100,false,true)
+		     local WPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),math.huge,700,1000,200,false,true)
+                     if CanUseSpell(myHero, _W) == READY and WPred.HitChance == 1 and Config.W then
+                     CastSkillShot(_W,WPred.PredPos.x,WPred.PredPos.y,WPred.PredPos.z)
+
+end     	     if ValidTarget(target, 1150) then	
+		     local EPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1400,200,1150,60,true,true)
+                     if CanUseSpell(myHero, _E) == READY and EPred.HitChance == 1 and Config.E then
+                     CastSkillShot(_E,EPred.PredPos.x,EPred.PredPos.y,EPred.PredPos.z)
+
+	end
+end		
+		    if ValidTarget(target, 1550) then
+		    local QPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),math.huge,600,1550,100,false,true)
                     if CanUseSpell(myHero, _Q) == READY and QPred.HitChance == 1 and Config.Q then
                     CastSkillShot(_Q,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
+end
 end
 			if GotBuff(myHero, "XerathArcanopulseChargeUp") then
 			CastSkillShot2(_Q,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
 end
-	
-		     if ValidTarget(target, 1150) then		     
-		     local EPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1400,200,1150,60,true,true)
-                     if CanUseSpell(myHero, _E) == READY and EPred.HitChance == 1 and Config.E then
-                     CastSkillShot(_E,EPred.PredPos.x,EPred.PredPos.y,EPred.PredPos.z)
-	end
-end
-                    
-		     if ValidTarget(target, 1000) then			
-		     local WPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),math.huge,700,1000,200,false,true)
-                     if CanUseSpell(myHero, _W) == READY and WPred.HitChance == 1 and Config.W then
-                     CastSkillShot(_W,WPred.PredPos.x,WPred.PredPos.y,WPred.PredPos.z)
-	end
-end
-             
 	
 			end
 		end

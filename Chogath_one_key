@@ -2,21 +2,21 @@ require("Inspired")
 require("IWalk")
 
 
-AddInfo("Chogath", "Chogath")
-AddButton("Q", "Use Q", true)
-AddButton("W", "Use W", true)
-AddButton("R", "Use R Killable", true)
+Config = scriptConfig("Chogath", "Chogath_One_Key:")
+Config.addParam("Q", "Use Q", SCRIPT_PARAM_ONOFF, true)
+Config.addParam("W", "Use W", SCRIPT_PARAM_ONOFF, true)
+Config.addParam("R", "Use R Killable", SCRIPT_PARAM_ONOFF, true)
+
 
 
 OnLoop(function(myHero)
-	IWalk()
+	if IWalkConfig.Combo then
 	DrawMenu()
 	DrawText("ONE KEY TO WIN",24,0,0,0xffff0000);
-				
-	if GetKeyValue("Combo") then
 	local target = GetCurrentTarget()
 	if ValidTarget(target, 900) then
 	--Loots from TheWelder
+	local QPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),math.huge,1000,950,1000,false,false)
 	local BonusAP = GetBonusAP(myHero)
 	local perc70 = (BonusAP*70)/100
 	local Feast = (GetCastLevel(myHero,_R)*300)+(BonusAP)
@@ -25,35 +25,23 @@ OnLoop(function(myHero)
 	
 		
 	
-		if CanUseSpell(myHero, _W) == READY and GetButtonValue("W") and IsInDistance(target, 700) then
+		if CanUseSpell(myHero, _W) == READY and Config.W and IsInDistance(target, 700) then
 			CastTargetSpell(target, _W)
 			
-	end
-		if ValidTarget(target, 1000) then
-		local QPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),math.huge,1000,950,1000,false,false)
-			if GetButtonValue("Q") then
-                 	if CanUseSpell(myHero, _Q) == READY and QPred.HitChance == 1 then
+		elseif CanUseSpell(myHero, _Q) == READY and Config.Q and QPred.HitChance == 1 then
                  	CastSkillShot(_Q,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
-		end		
-	end
 end		
 
-	if GetButtonValue("R") then
-	if ValidTarget(target,300) then
 	if CalcDamage(myHero, target, Feast) > GetCurrentHP(target) + GetHPRegen(target) then
 	if CalcDamage(myHero, target, Feast2) > GetCurrentHP(target) + GetHPRegen(target) then
 	if CalcDamage(myHero, target, Feast3) > GetCurrentHP(target) + GetHPRegen(target) then
-	if CanUseSpell(myHero,_R) == READY then
+	if CanUseSpell(myHero,_R) == READY and Config.R and IsInDistance(target, 200) then
 	CastTargetSpell(target,_R)
-end
-end
-end
-end
-end
-end
+					end
+				end
 
-	    	end
-	end
-	end
+	    			end
+			end
+		end
 	end
 end)

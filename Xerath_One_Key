@@ -24,12 +24,14 @@ end
 		     local EPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1400,200,1150,60,true,true)
                      if CanUseSpell(myHero, _E) == READY and EPred.HitChance == 1 and Config.E then
                      CastSkillShot(_E,EPred.PredPos.x,EPred.PredPos.y,EPred.PredPos.z)
+	end
 end
                     
-		      if ValidTarget(target, 1000) then			
+		     if ValidTarget(target, 1000) then			
 		     local WPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),math.huge,700,1000,200,false,true)
                      if CanUseSpell(myHero, _W) == READY and WPred.HitChance == 1 and Config.W then
                      CastSkillShot(_W,WPred.PredPos.x,WPred.PredPos.y,WPred.PredPos.z)
+	end
 end
              
 	

@@ -39,3 +39,16 @@ OnLoop(function(myHero)
 
 	    	end 
 end)
+
+OnLoop(function(myHero) --GOOD idea I think by MarCiii
+	if not IWalkConfig.Harass then return end
+	DrawMenu()
+	DrawText("ULTIMATE ON",24,0,0,0xffff0000);
+	local target = GetCurrentTarget()
+		if ValidTarget(target, 1800) then
+			local RPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),math.huge,1200,1800,150,false,false)	
+	        	if CanUseSpell(myHero, _R) == READY and RPred.HitChance == 1 then
+                 	CastSkillShot(_R,RPred.PredPos.x,RPred.PredPos.y,RPred.PredPos.z)
+			end
+		end 
+end)

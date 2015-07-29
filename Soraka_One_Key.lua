@@ -30,7 +30,7 @@ end
 			if CanUseSpell(myHero, _Q) == READY and Config.Q and QPred.HitChance == 1 then
                  	CastSkillShot(_Q,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
 			
-			elseif CanUseSpell(myHero, _E) == READY and Config.E and QPred.HitChance == 1 then
+			elseif CanUseSpell(myHero, _E) == READY and Config.E and EPred.HitChance == 1 then
                  	CastSkillShot(_E,EPred.PredPos.x,EPred.PredPos.y,EPred.PredPos.z)
 
 end

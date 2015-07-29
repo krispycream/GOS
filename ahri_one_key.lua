@@ -1,7 +1,3 @@
-require("Inspired")
-require('IWalk')
-
-
 Config = scriptConfig("Ahri", "Ahri_One_Key")
 Config.addParam("Q", "Use Q", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("W", "Use W", SCRIPT_PARAM_ONOFF, true)

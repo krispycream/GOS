@@ -5,9 +5,7 @@ Config.addParam("E", "Use E", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("R", "Use R", SCRIPT_PARAM_ONOFF, true)
 
 OnLoop(function(myHero)
-	if not IWalkConfig.Combo then return end
-	DrawMenu()
-	DrawText("ONE KEY TO WIN",24,0,0,0xffff0000);
+	if Config.Combo then return end
 	local target = GetCurrentTarget()
 		if ValidTarget(target, 1200) then
 			local QPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1650,250,1200,70,true,true)
@@ -37,7 +35,7 @@ OnLoop(function(myHero)
 end)
 
 OnLoop(function(myHero) --GOOD idea I think by MarCiii
-	if not IWalkConfig.Harass then return end
+	if Config.Harass then return end
 	DrawMenu()
 	DrawText("ULTIMATE ON",24,0,0,0xffff0000);
 	local target = GetCurrentTarget()

@@ -6,7 +6,7 @@ Config.addParam("R", "Use R If Killabe", SCRIPT_PARAM_ONOFF, true)
 
 
 OnLoop(function(myHero)
-	if not IWalkConfig.Combo then return end
+	if Config.Combo then return end
 	DrawMenu()
 	DrawText("ONE KEY TO WIN",24,0,0,0xffff0000);
 	local target = GetCurrentTarget()
@@ -47,7 +47,7 @@ end
 end)
 
 OnLoop(function(myHero) --GOOD idea I think by MarCiii
-	if not IWalkConfig.Harass then return end
+	if notif Config.Harass then return end
 	local target = GetCurrentTarget()
 			local EPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1300,250,1100,275,false,true)	
 	        	if CanUseSpell(myHero, _E) == READY and Config.E and EPred.HitChance == 1 then

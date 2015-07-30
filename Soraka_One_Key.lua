@@ -7,7 +7,7 @@ Config.addParam("R", "Use R", SCRIPT_PARAM_ONOFF, true)
 
 
 OnLoop(function(myHero)
-	if not IWalkConfig.Combo then return end
+	if Config.Combo then return end
 	DrawText("ONE KEY TO WIN",24,0,0,0xffff0000);
 	local target = GetCurrentTarget()
 	local QPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1750,500,950,300,false,true)

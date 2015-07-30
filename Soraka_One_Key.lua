@@ -22,7 +22,7 @@ end
 
 
 			for _, ally in pairs(GetAllyHeroes()) do
-			if (GetCurrentHP(ally)/GetMaxHP(ally))<0.3 and
+			if (GetCurrentHP(ally)/GetMaxHP(ally))<0.1 and
 	            	CanUseSpell(myHero, _R) == READY and Config.R and IsObjectAlive(ally) then
 			CastSpell(_R)
 end

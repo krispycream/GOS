@@ -1,3 +1,4 @@
+--As Always Credits to TheWelder
 local info = "Rengar_One_Key Loaded"
 local upv = "Upvote if you like it!"
 local sig = "Made by snowbell"

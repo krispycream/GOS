@@ -29,8 +29,8 @@ OnLoop(function(myHero)
 end
 end
 end		
-		if Config.W then
 		if ValidTarget(target, 200) then
+		if Config.W then
 		if  CanUseSpell(myHero, _W) == READY and IsInDistance(target, 200) then
 			CastSpell(_W)
 end

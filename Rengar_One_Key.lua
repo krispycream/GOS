@@ -1,4 +1,3 @@
---As Always Credits to TheWelder
 local info = "Rengar_One_Key Loaded"
 local upv = "Upvote if you like it!"
 local sig = "Made by snowbell"
@@ -9,27 +8,42 @@ PrintChat(textTable[2])
 PrintChat(textTable[3])
 PrintChat(textTable[4]) 
 
-Config = scriptConfig("Rengar", "Rengar_One_Key")
+Config = scriptConfig("Rengar", "Rengar_One_Key Loaded")
 Config.addParam("Q", "Use Q", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("W", "Use W", SCRIPT_PARAM_ONOFF, true)
 Config.addParam("E", "Use E", SCRIPT_PARAM_ONOFF, true)
+Config.addParam("Combo", "Combo", SCRIPT_PARAM_KEYDOWN, string.byte(" "))
 
 
 OnLoop(function(myHero)
-	if Config.Combo then return end
+	local myHero = GetMyHero()
 	local target = GetCurrentTarget()
-	if ValidTarget(target, 900) then
-	local EPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1500,250,1000,70,true,true)
-	
-	             if CanUseSpell(myHero, _Q) == READY and Config.Q and IsInDistance(target, 300) then
+	local myHeroPos = GetOrigin(myHero)
+	local EPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1600,250,1100,60,true,true)
+	if "Rengar" == GetObjectName(myHero) then
+	if Config.Combo and IsObjectAlive(target) then
+	if ValidTarget(target, 500) then
+	        if Config.Q then
+		if CanUseSpell(myHero, _Q) == READY and IsInDistance(target, 550) then
 			CastSpell(_Q)
-
-		elseif  CanUseSpell(myHero, _W) == READY and Config.W and IsInDistance(target, 400) then
+end
+end
+end		
+		if Config.W then
+		if ValidTarget(target, 200) then
+		if  CanUseSpell(myHero, _W) == READY and IsInDistance(target, 200) then
 			CastSpell(_W)
+end
+end
+end
 			
-
-		elseif CanUseSpell(myHero, _E) == READY and Config.E and EPred.HitChance == 1 then
+		if ValidTarget(target, 1100) then
+		if Config.E then
+		if CanUseSpell(myHero, _E) == READY and EPred.HitChance == 1 then
                        CastSkillShot(_E,EPred.PredPos.x,EPred.PredPos.y,EPred.PredPos.z)		  
 	end
+end
+end
+end
 end
 end)

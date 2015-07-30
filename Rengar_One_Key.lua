@@ -18,7 +18,7 @@ OnLoop(function(myHero)
 	if Config.Combo then return end
 	local target = GetCurrentTarget()
 	if ValidTarget(target, 900) then
-	local EPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1600,250,1100,60,true,true)
+	local EPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1500,250,1000,70,true,true)
 	
 	             if CanUseSpell(myHero, _Q) == READY and Config.W and IsInDistance(target, 550) then
 			CastSpell(_Q)

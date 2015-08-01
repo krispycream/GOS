@@ -46,7 +46,7 @@ end
 end
 end
 		if ValidTarget(target, 1100) then
-		if Config.W then
+		if Config.Q then
 		if CanUseSpell(myHero, _Q) == READY and QPred.HitChance == 1 then
                        CastSkillShot(_Q,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
 		end

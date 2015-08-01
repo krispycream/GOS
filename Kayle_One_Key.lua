@@ -59,7 +59,7 @@ end
 	end
 
 			if Config.R then
-			if (GetCurrentHP(myHero)/GetMaxHP(myHero))<0.4 and
+			if (GetCurrentHP(myHero)/GetMaxHP(myHero))<0.2 and
 	            	CanUseSpell(myHero, _R) == READY then
 			CastTargetSpell(myHero, _R)
 		end

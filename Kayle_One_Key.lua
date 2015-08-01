@@ -1,4 +1,3 @@
-require('Inspired')
 ---Credits to TheWelder
 local info = "Kayle_One_Key Loaded"
 local upv = "Upvote if you like it!"

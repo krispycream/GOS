@@ -47,7 +47,7 @@ end
 end			
 			if ValidTarget(target, 950) then
 			if Skra.Combo.Q:Value() then
-			if CanUseSpell(myHero, _Q) == READY and QPred.HitChance == 1 then
+			if CanUseSpell(myHero, _Q) == READY  then
                  	CastSkillShot(_Q, QThrowPos.x, QThrowPos.y, QThrowPos.z)
 
 		end
@@ -56,10 +56,11 @@ end
 			
 			if ValidTarget(target, 650) then
 			if Skra.Combo.E:Value() then
-			if CanUseSpell(myHero, _E) == READY and EPred.HitChance == 1 then
+			if CanUseSpell(myHero, _E) == READY  then
                  	CastSkillShot(_E, EThrowPos.x, EThrowPos.y, EThrowPos.z)
 					end
 			end
-			end
+		end
+		end
 	
 end)

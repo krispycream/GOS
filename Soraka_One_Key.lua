@@ -25,8 +25,7 @@ OnTick(function(myHero)
    local target = GetCurrentTarget()
    ----COMBO----
  if IOW:Mode() == "Combo" then
-local QPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1750,500,950,300,false,true)
-local EPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1600,0,650,50,false,true)
+ 	
 			
 			for _, ally in pairs(GetAllyHeroes()) do
 			if Skra.Combo.W:Value() then
@@ -49,7 +48,7 @@ end
 			if ValidTarget(target, 950) then
 			if Skra.Combo.Q:Value() then
 			if CanUseSpell(myHero, _Q) == READY and QPred.HitChance == 1 then
-                 	CastSkillShot(_Q,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
+                 	CastSkillShot(_Q, QThrowPos.x, QThrowPos.y, QThrowPos.z)
 
 		end
 	end
@@ -58,7 +57,7 @@ end
 			if ValidTarget(target, 650) then
 			if Skra.Combo.E:Value() then
 			if CanUseSpell(myHero, _E) == READY and EPred.HitChance == 1 then
-                 	CastSkillShot(_E,EPred.PredPos.x,EPred.PredPos.y,EPred.PredPos.z)
+                 	CastSkillShot(_E, EThrowPos.x, EThrowPos.y, EThrowPos.z)
 					end
 			end
 			end

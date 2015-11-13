@@ -52,6 +52,7 @@ end
 		local pred = GetPredictionForPlayer(GetOrigin(target),target,GetMoveSpeed(target),math.huge,500,GetCastRange(myHero,_Q),200,false,true)
 		if pred.HitChance == 1 then	
 			CastSkillShot(_Q,pred.PredPos)
+			end
 
 		end
 	end
@@ -65,6 +66,7 @@ end
 		if pred.HitChance == 1 then	
 			CastSkillShot(_E,pred.PredPos)
 					end
+			end
 			end
 		end
 		end

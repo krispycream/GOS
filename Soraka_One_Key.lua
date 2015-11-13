@@ -49,7 +49,7 @@ end
 			if Skra.Combo.Q:Value() then
 			if target and CanUseSpell(myHero,_Q) == READY then
 		-- CastStartPosVec,EnemyChampionPtr,EnemyMoveSpeed,YourSkillshotSpeed,SkillShotDelay,SkillShotRange,SkillShotWidth,MinionCollisionCheck,AddHitBox;
-		local pred = GetPredictionForPlayer(GetOrigin(target),target,GetMoveSpeed(target),math.huge,500,GetCastRange(myHero,_Q),200,false,true)
+		local pred = GetPredictionForPlayer(GetOrigin(target),target,GetMoveSpeed(target),1100,250,970,260,false,true)
 		if pred.HitChance == 1 then	
 			CastSkillShot(_Q,pred.PredPos)
 			end
@@ -62,7 +62,7 @@ end
 			if Skra.Combo.E:Value() then
 			if target and CanUseSpell(myHero,_E) == READY then
 		-- CastStartPosVec,EnemyChampionPtr,EnemyMoveSpeed,YourSkillshotSpeed,SkillShotDelay,SkillShotRange,SkillShotWidth,MinionCollisionCheck,AddHitBox;
-		local pred = GetPredictionForPlayer(GetOrigin(target),target,GetMoveSpeed(target),math.huge,500,GetCastRange(myHero,_Q),200,false,true)
+		local pred = GetPredictionForPlayer(GetOrigin(target),target,GetMoveSpeed(target),math.huge,1750,925,275,false,true)
 		if pred.HitChance == 1 then	
 			CastSkillShot(_E,pred.PredPos)
 					end

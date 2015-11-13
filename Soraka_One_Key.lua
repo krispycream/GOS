@@ -61,6 +61,5 @@ end
                  	CastSkillShot(_E,EPred.PredPos.x,EPred.PredPos.y,EPred.PredPos.z)
 					end
 				end
-			end
 	
 end)

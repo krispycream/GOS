@@ -1,5 +1,5 @@
 ---Credits to TheWelder
-local info = "Soraka_One_Key Loaded"
+local info = "Soraka Loaded"
 local upv = "Upvote if you like it!"
 local sig = "Made by SnOwBeLL"
 local ver = "v 1.0"
@@ -58,7 +58,7 @@ end
 	end
 end
 			
-			if ValidTarget(target, 650) then
+			if ValidTarget(target, 925) then
 			if Skra.Combo.E:Value() then
 			if target and CanUseSpell(myHero,_E) == READY then
 		-- CastStartPosVec,EnemyChampionPtr,EnemyMoveSpeed,YourSkillshotSpeed,SkillShotDelay,SkillShotRange,SkillShotWidth,MinionCollisionCheck,AddHitBox;

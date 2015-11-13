@@ -7,25 +7,31 @@ textTable = {info,upv,sig,ver}
 PrintChat(textTable[1])
 PrintChat(textTable[2])
 PrintChat(textTable[3])
-PrintChat(textTable[4]) 
+PrintChat(textTable[4])
+	
+if GetObjectName(GetMyHero()) ~= "Soraka" then return end
 
-Config = scriptConfig("Soraka", "Soraka_One_Key")
-Config.addParam("Q", "Use Q", SCRIPT_PARAM_ONOFF, true)
-Config.addParam("W", "Use W", SCRIPT_PARAM_ONOFF, true)
-Config.addParam("E", "Use E", SCRIPT_PARAM_ONOFF, true)
-Config.addParam("R", "Use R", SCRIPT_PARAM_ONOFF, true)
-Config.addParam("Combo", "Combo", SCRIPT_PARAM_KEYDOWN, string.byte(" "))
+require('Inspired')
 
 
+Skra = Menu("XinZhao", "XinZhao")
+Skra:SubMenu("Combo", "Combo")
+Skra.Combo:Boolean("Q", "Use Q", true)
+Skra.Combo:Boolean("W", "Use W", true)
+Skra.Combo:Boolean("E", "Use E", true)
+Skra.Combo:Boolean("R", "Use R", true)
 
-OnLoop(function(myHero)
-	local myHero = GetMyHero()
-	local target = GetCurrentTarget()
-	local myHeroPos = GetOrigin(myHero)
-	local QPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1750,500,950,300,false,true)
-	local EPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1600,0,650,50,false,true)
-	if "Soraka" == GetObjectName(myHero) then
-	if Config.Combo and IsObjectAlive(target) then
+
+
+
+
+
+OnTick(function(myHero)
+   local target = GetCurrentTarget()
+   ----COMBO----
+   if IOW:Mode() == "Combo" then
+local QPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1750,500,950,300,false,true)
+local EPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1600,0,650,50,false,true)
 			
 			for _, ally in pairs(GetAllyHeroes()) do
 			if Config.W then

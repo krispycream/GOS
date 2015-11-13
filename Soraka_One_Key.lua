@@ -29,7 +29,7 @@ local QPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),
 local EPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1600,0,650,50,false,true)
 			
 			for _, ally in pairs(GetAllyHeroes()) do
-			if Config.W then
+			if Skra.Combo.W:Value() then
 			if (GetCurrentHP(ally)/GetMaxHP(ally))<0.6 and
 	            	CanUseSpell(myHero, _W) == READY and IsInDistance(ally, 600) then
 			CastTargetSpell(ally, _W)
@@ -39,7 +39,7 @@ end
 			
 
 			for _, ally in pairs(GetAllyHeroes()) do
-			if Config.R then
+			if Skra.Combo.R:Value() then
 			if (GetCurrentHP(ally)/GetMaxHP(ally))<0.2 and
 	            	CanUseSpell(myHero, _R) == READY and IsObjectAlive(ally) then
 			CastSpell(_R)
@@ -47,7 +47,7 @@ end
 	end
 end			
 			if ValidTarget(target, 950) then
-			if Config.Q then
+			if Skra.Combo.Q:Value() then
 			if CanUseSpell(myHero, _Q) == READY and QPred.HitChance == 1 then
                  	CastSkillShot(_Q,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
 
@@ -56,10 +56,11 @@ end
 end
 			
 			if ValidTarget(target, 650) then
-			if Config.E then
+			if Skra.Combo.E:Value() then
 			if CanUseSpell(myHero, _E) == READY and EPred.HitChance == 1 then
                  	CastSkillShot(_E,EPred.PredPos.x,EPred.PredPos.y,EPred.PredPos.z)
 					end
-				end
+			end
+			end
 	
 end)

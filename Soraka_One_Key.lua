@@ -14,22 +14,17 @@ if GetObjectName(GetMyHero()) ~= "Soraka" then return end
 require('Inspired')
 
 
-Skra = Menu("XinZhao", "XinZhao")
+Skra = Menu("Soraka", "Soraka")
 Skra:SubMenu("Combo", "Combo")
 Skra.Combo:Boolean("Q", "Use Q", true)
 Skra.Combo:Boolean("W", "Use W", true)
 Skra.Combo:Boolean("E", "Use E", true)
 Skra.Combo:Boolean("R", "Use R", true)
 
-
-
-
-
-
 OnTick(function(myHero)
    local target = GetCurrentTarget()
    ----COMBO----
-   if IOW:Mode() == "Combo" then
+ if IOW:Mode() == "Combo" then
 local QPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1750,500,950,300,false,true)
 local EPred = GetPredictionForPlayer(GetMyHeroPos(),target,GetMoveSpeed(target),1600,0,650,50,false,true)
 			

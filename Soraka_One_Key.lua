@@ -47,8 +47,11 @@ end
 end			
 			if ValidTarget(target, 950) then
 			if Skra.Combo.Q:Value() then
-			if CanUseSpell(myHero, _Q) == READY  then
-                 	CastSkillShot(_Q, QThrowPos.x, QThrowPos.y, QThrowPos.z)
+			if target and CanUseSpell(myHero,_Q) == READY then
+		-- CastStartPosVec,EnemyChampionPtr,EnemyMoveSpeed,YourSkillshotSpeed,SkillShotDelay,SkillShotRange,SkillShotWidth,MinionCollisionCheck,AddHitBox;
+		local pred = GetPredictionForPlayer(GetOrigin(target),target,GetMoveSpeed(target),math.huge,500,GetCastRange(myHero,_Q),200,false,true)
+		if pred.HitChance == 1 then	
+			CastSkillShot(_Q,pred.PredPos)
 
 		end
 	end
@@ -56,8 +59,11 @@ end
 			
 			if ValidTarget(target, 650) then
 			if Skra.Combo.E:Value() then
-			if CanUseSpell(myHero, _E) == READY  then
-                 	CastSkillShot(_E, EThrowPos.x, EThrowPos.y, EThrowPos.z)
+			if target and CanUseSpell(myHero,_E) == READY then
+		-- CastStartPosVec,EnemyChampionPtr,EnemyMoveSpeed,YourSkillshotSpeed,SkillShotDelay,SkillShotRange,SkillShotWidth,MinionCollisionCheck,AddHitBox;
+		local pred = GetPredictionForPlayer(GetOrigin(target),target,GetMoveSpeed(target),math.huge,500,GetCastRange(myHero,_Q),200,false,true)
+		if pred.HitChance == 1 then	
+			CastSkillShot(_E,pred.PredPos)
 					end
 			end
 		end

@@ -1,0 +1,45 @@
+local info = "Riven"
+local upv = "Upvote if you like it!"
+local sig = "Made by SnOwBeLL"
+local ver = "v 1.0"
+textTable = {info,upv,sig,ver} 
+PrintChat(textTable[1])
+PrintChat(textTable[2])
+PrintChat(textTable[3])
+PrintChat(textTable[4])
+	
+if GetObjectName(GetMyHero()) ~= "Riven" then return end
+
+require('Inspired')
+
+
+Skra = Menu("Riven", "Riven")
+Skra:SubMenu("Combo", "Combo")
+Skra.Combo:Boolean("Q", "Use Q", true)
+Skra.Combo:Boolean("W", "Use W", true)
+Skra.Combo:Boolean("E", "Use E", true)
+Skra.Combo:Boolean("R", "Use R", true)
+
+OnTick(function(myHero)
+   local target = GetCurrentTarget()
+   ----COMBO----
+ if IOW:Mode() == "Combo" then
+ 	
+			
+		if ValidTarget(target) then
+			if Skra.Combo.Q:Value() then
+			if spell.name == "RivenTriCleave" then
+			self.QCast = self.QCast + 1
+			DelayAction(function() if not self.QREADY then self.QCast = 0 end end, 4000)
+		elseif spell.name == "RivenFeint" then
+			DelayAction(function()
+			end
+			end
+			end
+			end
+			ned
+
+	
+		
+	
+end)
